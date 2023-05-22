@@ -7,19 +7,36 @@
 </head>
 
 <body>	
-	<script>
+
+		<script>
 		function secondHighest(arr) {
 			//Write your code here
+			let check=false;
+			if(arr.length==0 || arr.length==1) return -Infinity;
+			let i=arr[0] 
+			for(let a =0 ;a<arr.length;a++){
+				if(arr[a]!=i){
+					check=true;
+				}
+			}
+			if(check==false){
+				return -Infinity;
+			}
+			let n=arr.length;
+			arr.sort(function(a, b) {
+  return a - b;
+}); 
+			return arr[n-2];    
 			
 		}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
+		 var n = prompt("Enter the number of elements");
+			var arr = [];  
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				 arr[i] = prompt("Enter element " + (i+1));
 			}
-			alert(secondHighest(arr));
+			alert(secondHighest(arr)); 
 		}
 		Main();
 	</script>
